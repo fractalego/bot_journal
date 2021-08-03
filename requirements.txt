@@ -1,0 +1,10 @@
+flask
+flask-cors
+flask_dropzone
+transformers
+torch
+nltk
+gensim
+sklearn
+torchtext
+sentence_transformers
