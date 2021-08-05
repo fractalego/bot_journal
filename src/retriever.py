@@ -1,7 +1,6 @@
 import json
 import os
 import torch
-import joblib
 import logging
 
 from gensim.models import KeyedVectors
@@ -14,7 +13,6 @@ _path = os.path.dirname(__file__)
 _logger = logging.getLogger(__file__)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tfidf = joblib.load(os.path.join(_path, '../models/tfidf.joblib'))
 sentence_model = SentenceTransformer('msmarco-distilbert-base-v3')
 sentence_model = sentence_model.to(device)
 
