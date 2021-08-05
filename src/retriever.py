@@ -8,7 +8,7 @@ from gensim.models import KeyedVectors
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
 
-from src.titles import get_chapters_from_text
+from src.paragraphs import get_chapters_from_text
 
 _path = os.path.dirname(__file__)
 _logger = logging.getLogger(__file__)
