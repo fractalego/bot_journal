@@ -85,12 +85,16 @@ def generate_answer(text, query, dialogue, length):
     return answer, score
 
 
+def join_results_together(results):
+    return '\n\n'.join(item[0] for item in results)
+
+
 def get_best_answer_and_paragraph(results, dialogue, query):
-    answers_and_scores = []
-    for paragraph, similarity in results:
-        answer, perplexity = generate_answer(paragraph, query, dialogue, length=50)
-        score = 0.02 * perplexity + (1 - similarity)
-        answers_and_scores.append((answer, score, paragraph))
+    paragraph = join_results_together(results)
+
+    #### Use Generate Multiple Answers here
+
+    answer, perplexity = generate_answer(paragraph, query, dialogue, length=50)
 
     answers_and_scores = sorted(answers_and_scores, key=lambda x: x[1])
     final_answer = 'unknown'
